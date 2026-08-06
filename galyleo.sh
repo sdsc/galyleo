@@ -666,7 +666,7 @@ function galyleo_launch() {
         fi
         if [[ "${conda_cache}" == 'true' ]]; then
           slog append -f "${job_name}.sh" -m 'conda install -y conda-pack -c conda-forge'
-          slog append -f "${job_name}.sh" -m "conda pack -n ${conda_env} -o ${conda_env}.tar.gz"
+          slog append -f "${job_name}.sh" -m "conda-pack -n ${conda_env} -o ${conda_env}.tar.gz"
           slog append -f "${job_name}.sh" -m "cp ${conda_env}.tar.gz ${GALYLEO_CACHE_DIR}/${conda_env}/${conda_env}.tar.gz"
           slog append -f "${job_name}.sh" -m "md5sum ${conda_yml_basename} > ${conda_env}.md5"
           slog append -f "${job_name}.sh" -m "cp ${conda_env}.md5 ${GALYLEO_CACHE_DIR}/${conda_env}/${conda_env}.md5"
@@ -783,7 +783,7 @@ function galyleo_launch() {
         fi
         if [[ "${conda_cache}" == 'true' ]]; then
           slog append -f 'setup-conda.sh' -m 'conda install -y conda-pack -c conda-forge'
-          slog append -f 'setup-conda.sh' -m "conda pack -n ${conda_env} -o ${conda_env}.tar.gz"
+          slog append -f 'setup-conda.sh' -m "conda-pack -n ${conda_env} -o ${conda_env}.tar.gz"
           slog append -f 'setup-conda.sh' -m "cp ${conda_env}.tar.gz ${GALYLEO_CACHE_DIR}/${conda_env}/${conda_env}.tar.gz"
           slog append -f 'setup-conda.sh' -m "md5sum ${conda_yml_basename} > ${conda_env}.md5"
           slog append -f 'setup-conda.sh' -m "cp ${conda_env}.md5 ${GALYLEO_CACHE_DIR}/${conda_env}/${conda_env}.md5"
